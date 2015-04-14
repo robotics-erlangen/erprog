@@ -1,4 +1,3 @@
-
 # ERPROG Software
 
 ## Setup
@@ -15,8 +14,8 @@
 
 **On Linux:**
 
-1.	Install the udev config file "udev/99-robotics-usb-devices.rules"
-2.	Copy into the folder "/etc/udev/rules.d/"
+1.	Install the udev config file `udev/99-robotics-usb-devices.rules`
+2.	Copy into the folder `/etc/udev/rules.d/`
 
 **Embedded Compiler / Debugger:**
 Get GCC 4.9 from https://launchpad.net/gcc-arm-embedded
@@ -50,7 +49,7 @@ Get GCC 4.9 from https://launchpad.net/gcc-arm-embedded
 -	Check that the JTAG-adapter is connected to USB and the board
 -	Check that the board is powered on
 -	Check that the udev file (udev/99-robotics-usb-devices.rules) is installed
--	OpenOCD complains about "JTAG-DP OVERRUN" -> see Emergency Rescue
+-	OpenOCD complains about "JTAG-DP OVERRUN" -> Resetting via SRST is not working, check that on the board JTAG SRST pin is connected with NRST pin of STM
 -	Mac: „Error: libusb_claim_interface() failed with -3“. Run:
 	```
 	sudo kextunload -bundle com.apple.driver.AppleUSBFTDI
@@ -60,8 +59,8 @@ Get GCC 4.9 from https://launchpad.net/gcc-arm-embedded
 
 *Only works on Linux*
 
-1.	**Flash the board with a build with DEBUG symbols!**
-2.	Then start openocd for the board
+1.	Flash the board with a build with **DEBUG symbols**!
+2.	Start openocd for the board
 
 	```
 	cd JTAG-software
@@ -74,18 +73,16 @@ Get GCC 4.9 from https://launchpad.net/gcc-arm-embedded
 	```
 	Kit: Embedded
 	Server port: 3333 (This attaches to the first cpu target, use 3334 for the second, ...)
-	Local executable: the elf file in bin/firmware that was flashed (debug suffix!)
+	Local executable: the elf file in bin/firmware that was flashed
 	```
 
 The Kit has to be created before:
-Tools > Options ... > Build & Run > Kits
 
-Add a new kit with name like embedded.
-Device type: Generic Linux Device
-
-Debugger > Edit... : Set path = /usr/bin/arm-none-eabi-gdb  (arm version of gdb)
-Qt version: None
-
+1.	Tools > Options ... > Build & Run > Kits
+2.	Add a new kit with name `Embedded`, set device type to `Generic Linux Device`
+3. 	Debugger > Edit...
+	1. 	Path: `/usr/bin/arm-none-eabi-gdb`  (arm version of gdb with python), exectuable name could also be `arm-none-eabi-gdb-py`.
+	2. 	Qt version: None
 
 Have fun debugging! The debugger will attach to the running firmware. If you want
 to debug the startup procedure, then edit the openocd configuration as described
