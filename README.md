@@ -19,7 +19,7 @@ The main ICs are
 
 ## Software
 
-The software readme is in url{https://github.com/robotics-erlangen/erprog/tree/master/software}
+The software readme is in https://github.com/robotics-erlangen/erprog/tree/master/software
 
 ## Computer connection
 
