@@ -47,4 +47,4 @@ Follwoing the pinout is described based on a standard 10 pin 100mil plug with 2 
 
 ## ToDo
 
-For the next release it is planned to allow for controlling the isolator's enable-pin. Thus, the programmer can be put to high-impedance mode so it does not interfere with the target in normal operation.
+For the next release it is planned to allow the controlling of the isolator's enable-pin. Thus, the programmer can be put into high-impedance mode so it does not interfere with the target in normal operation.
